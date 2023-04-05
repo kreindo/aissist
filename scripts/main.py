@@ -1,11 +1,13 @@
 import os
 import openai
 from utils.prompter import *
+from dotenv import load_dotenv
+# Load environment variables from .env file
+load_dotenv()
 
-os.environ['API_KEY'] = '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'
 
-openai.organization = 'org-8afkp4JUkwZksD0mZLVHAQwO'
-openai.api_key = os.getenv('API_KEY')
+openai.organization = os.getenv('OPENAPI_ORG_KEY')
+openai.api_key = os.getenv('OPENAI_API_KEY')
 
 conversation = []
 history = {"history": conversation}
